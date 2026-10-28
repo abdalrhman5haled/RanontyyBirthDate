@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>❤</title>
+  </head>
+  <body data-page="private" class="birthday">
+    <audio id="song" loop preload="auto"></audio>
+    <div class="gate" id="gate">
+      <div class="big">🔒</div>
+      <h2 class="script">منطقة خاصة</h2>
+      <input
+        id="pw"
+        type="password"
+        placeholder="Guess"
+        autocomplete="off"
+      /><button class="btn" id="go">Open</button>
+      <div class="err" id="err"></div>
+      <small id="hint"></small>
+    </div>
+    <main id="content" style="display: none">
+      <section class="greet">
+        <h1>كل سنة وإنتي طيبة يا رنونتييييييي ❤️</h1>
+        <h4>وعقبال ألف سنة وإنتي جنبي، بضحكتك اللي بتنوّر أيامي.</h4>
+      </section>
+      <section>
+        <h2>اليوم اللي حياتي بدأت فيه</h2>
+        <div class="cal" id="cal"></div>
+      </section>
+      <section>
+        <h2>من يومها لحد دلوقتي</h2>
+        <div class="boxes" id="counter"></div>
+        <p class="day script">اليوم اللي حياتي بدأت فيه ❤️</p>
+      </section>
+      <section>
+        <h2>جواب ليكي</h2>
+        <button class="env" id="env" aria-label="افتحي الجواب">💌</button>
+      </section>
+      <section>
+        <h2>US</h2>
+        <div id="gal"></div>
+      </section>
+      <footer>Made With Love To My Love ❤️</footer>
+    </main>
+    <div class="modal" id="modal"><div class="letter" id="letter"></div></div>
+    <button class="mute" id="mute" aria-label="الأغنية">🔊</button>
+    <script src="js/config.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
