@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>أدخل الباسورد</title>
+<style>
+  /* غيّر الألوان هنا لتناسب تصميم موقعك */
+  :root{--bg:#0f1115;--card:#181b22;--text:#f4f4f5;--accent:#f2774f;--err:#ff6b6b}
+  *{box-sizing:border-box;margin:0}
+  html,body{height:100%}
+  body{background:var(--bg);color:var(--text);font-family:Tahoma,Arial,sans-serif;display:grid;place-items:center;padding:1rem}
+  .box{width:min(100%,380px);background:var(--card);border-radius:16px;padding:2rem 1.5rem;text-align:center;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+  h1{font-size:1.5rem;margin-bottom:.4rem}
+  p{opacity:.7;margin-bottom:1.4rem;font-size:.95rem}
+  input{width:100%;padding:.9rem 1rem;border-radius:10px;border:2px solid #2b303b;background:#0f1115;color:var(--text);font-size:1.1rem;text-align:center;letter-spacing:.1em;outline:none}
+  input:focus{border-color:var(--accent)}
+  button{width:100%;margin-top:.9rem;padding:.9rem;border:0;border-radius:10px;background:var(--accent);color:#fff;font-size:1.1rem;font-weight:700;cursor:pointer}
+  button:disabled{opacity:.6;cursor:wait}
+  .err{color:var(--err);min-height:1.4rem;margin-top:.8rem;font-size:.95rem}
+  .shake{animation:shake .4s}
+  @keyframes shake{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+</style>
+</head>
+<body>
+  <form class="box" id="f">
+    <h1>🔒 الموقع محمي</h1>
+    <p>اكتب الباسورد عشان تدخل</p>
+    <input type="password" id="pw" placeholder="الباسورد" autocomplete="current-password" autofocus required>
+    <button id="btn" type="submit">دخول</button>
+    <div class="err" id="err" role="alert"></div>
+  </form>
+<script>
+const f = document.getElementById('f'), pw = document.getElementById('pw'),
+      btn = document.getElementById('btn'), err = document.getElementById('err');
+f.addEventListener('submit', async e => {
+  e.preventDefault();
+  btn.disabled = true; err.textContent = '';
+  try {
+    const r = await fetch('/api/login', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({password: pw.value})
+    });
+    if (r.ok) { location.replace('/'); return; }
+    err.textContent = 'الباسورد غلط، جرّب تاني';
+  } catch (_) {
+    err.textContent = 'حصلت مشكلة في الاتصال، جرّب تاني';
+  }
+  btn.disabled = false; pw.select();
+  f.classList.remove('shake'); void f.offsetWidth; f.classList.add('shake');
+});
+</script>
+</body>
+</html>
