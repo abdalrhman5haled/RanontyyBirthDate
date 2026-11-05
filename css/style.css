@@ -67,3 +67,15 @@ body.love .item img{border-color:#ff8fa3}
 .letter{background:#fff6f0;color:#5a1230;border-radius:16px;padding:30px 26px;max-width:520px;max-height:85vh;overflow:auto;font:1.2rem/2 'Aref Ruqaa',serif;text-align:right;white-space:pre-line}
 @media(max-width:640px){.item,.item:nth-child(even){flex-direction:column;text-align:center}.item img{width:80%}@keyframes drift{0%,100%{transform:translateX(-25px)}50%{transform:translateX(25px)}}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important}}
+.vbox{margin:60px 0 30px;text-align:center}
+.vsub{opacity:.9;margin-bottom:22px;font-size:1.1rem}
+.vframe{position:relative;display:inline-block;width:100%;max-width:640px;padding:12px;border-radius:24px;
+  background:linear-gradient(135deg,#ffd1dc,#ff2d55,#ffd1dc);box-shadow:0 0 30px #ff2d5588;
+  animation:vglow 2s infinite}
+.vframe video{display:block;width:100%;border-radius:14px;background:#000}
+.vframe span{position:absolute;font-size:2rem;animation:vbeat 1.4s infinite}
+.c1{top:-18px;right:-12px}.c2{bottom:-18px;left:-12px}
+.c3{top:-18px;left:-12px}.c4{bottom:-18px;right:-12px}
+.vcap{margin-top:26px;font-size:1.4rem;line-height:2}
+@keyframes vbeat{0%,100%{transform:scale(1)}30%{transform:scale(1.3)}60%{transform:scale(1.1)}}
+@keyframes vglow{50%{box-shadow:0 0 45px 10px #ff2d55aa}}
